@@ -92,7 +92,7 @@ It may be useful at times to track the CPU usage of AlpahFold, given that it is 
 3. Run `ps -ef --forest`. 
     * When running this script, the first column is the user, the second column is the process ID (PID) of the process, and the third column is the PID of the parent process. 
     * Find the process ID that refers to the AlphaFold script, which will be the process that has `python /app/alphagold/run_alphafold.py --fasta_paths=...`
-    * <img src="/Users/rkuang/Documents/SHEN/ps_forest.png" alt="ps tree sample" /> In the example above our PID of interest is the 3rd process listed, with a PID = `3781404`
+    * <img src="imgs/ps_forest.png" alt="ps tree sample" /> In the example above our PID of interest is the 3rd process listed, with a PID = `3781404`
 4. Run 
 ```
 nohup psrecord <PID> \
@@ -111,12 +111,12 @@ nohup psrecord <PID> \
 ### Option 2: Ranger's custom-made script (not recommended)
 1. Repeat steps 1-3 of Option 1 listed above 
 2. Open up the file `/home/rk3177/psrecord_custom.py`. Near the top, you should see two lines of code that are important: `PARENT_ID` and `location_name` 
-    * <img src="/Users/rkuang/Documents/SHEN/commandline_example.png" alt="psrecord custom example" /> 
+    * <img src="imgs/commandline_example.png" alt="psrecord custom example" /> 
     * `PARENT_ID` should be set to the `<PID>` that was found originally using `ps -ef --forest` 
     * `location_name` should be the location of where you want the script to output all of its log and plot files 
 3. Run `nohup python3 psrecord_custom.py > <NOHUP_OUT>.out &`
 4. The only advantage this custom-made script has over Option 1 is that this script tries to make explicit log/plot files for each child process that AlphaFold runs. That is why the script will output a mess of files that looks like this: 
-<img src="/Users/rkuang/Documents/SHEN/psrecord_output.png" alt="psrecord custom example" /> 
+<img src="imgs/psrecord_output.png" alt="psrecord custom example" /> 
 <br>
 However, the CPU usage numbers given by these separate log files do not accurately match up with just using `psrecord` by itself, so I am not confident in the accuracy of this script's output. 
 
