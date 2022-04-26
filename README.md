@@ -70,7 +70,7 @@ nohup python3 docker/run_docker.py \
 * `is_prokaryote_list` is optional and may be removed. Flag it true if all input sequences in the given fasta file are prokaryotic. If that is not the case or the origin is unknown, set to false 
 monomer: This is the original model used at CASP14 with no ensembling.
 * If you are predicting the structure of a protein that is already in PDB and you wish to avoid using it as a template, then `max_template_date` must be set to be before the release date of the structure. If you are using a specific protein from the Protein Data Bank as a template model, a good date to use is the release date of that specific model.
-* `model_preset` has a number of options depending on your fasta file:
+* `model_preset` has a number of options depending on your fasta file (this is just a copy-and-paste from DeepMind's github page):
     * __monomer__: This is the original model used at CASP14 with no ensembling.
     * __monomer_casp14__: This is the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration. This is largely provided for reproducibility as it is 8x more computationally expensive for limited accuracy gain (+0.1 average GDT gain on CASP14 domains).
 
@@ -118,8 +118,7 @@ nohup psrecord <PID> \
 4. The only advantage this custom-made script has over Option 1 is that this script tries to make explicit log/plot files for each child process that AlphaFold runs. That is why the script will output a mess of files that looks like this: 
 <img src="imgs/psrecord_output.png" alt="psrecord custom example" /> 
 <br>
-However, the CPU usage numbers given by these separate log files do not accurately match up with just using `psrecord` by itself, so I am not confident in the accuracy of this script's output. 
-
+However, the CPU usage numbers given by these separate log files do not accurately match up with just using `psrecord` natively, so I am not confident in the accuracy of this script's output. 
 
 # Postscript on OpenFold
 **OpenFold local repo originally pulled on: Dec. 10, 2021**
