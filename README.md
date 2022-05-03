@@ -1,13 +1,69 @@
 
-# AlphaFold Tutorial
+# AlphaFold Tutorial: Installing AlphaFold
 By: Ranger Kuang 
 <br>
 Last Updated: 5 May 2022
 <br>
+<br>
+[DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page has extensive and comprehensive details on installing AlphaFold. However, I will mention some of the nuances and issues that I ran into when installing AlphaFold onto md22. 
+## On Installing Docker
+Docker may be already up and running on the lab's servers (for md22, it was already installed). If Docker is already installed, you do not have to worry about the step of installing Docker. 
+## On Installing Python Dependencies
+When installing the Python dependencies, it is highly recommended to install them on a Python Virtual Environment. 
+### Utilizing OpenFold's virtual environment
+One possible method (easy, though not rigorously secure) is to take advantage of OpenFold's installation, which conveniently creates a miniconda environment. Since OpenFold is a replica of AlphaFold, most of the dependencies align anyways. Furthermore, you do not have to worry about giving different people permission to enter the virtual environment as OpenFold makes it easy to enter and leave the environment. 
+<br>
+<br>
+Here is the segment on [OpenFold's github page](https://github.com/aqlaboratory/openfold) relevant to creating the miniconda environment:
+> For convenience, we provide a script that installs Miniconda locally, creates a 
+`conda` virtual environment, installs all Python dependencies, and downloads
+useful resources (including DeepMind's pretrained parameters). Run:
+
+```bash
+scripts/install_third_party_dependencies.sh
+```
+
+> To activate the environment, run:
+
+```bash
+source scripts/activate_conda_env.sh
+```
+
+> To deactivate it, run:
+
+```bash
+source scripts/deactivate_conda_env.sh
+```
+If you use the OpenFold method, just remember to run this command within your virtual environment so that all of AlphaFold's dependencies are installed:
+```
+pip3 install -r docker/requirements.txt
+```
+## Other Miscellaneous Tips
+1. Don't forget to clone the actual AlphaFold repo! 
+```
+git clone https://github.com/deepmind/alphafold.git
+```
+2. Remember to build AlphaFold's docker image! You may run into an error if you don't have permission to build docker images; if this is the case, get permission or have someone who does have permission to do this step. Also, build the docker within the virtual environment that has all the python dependencies required to run AlphaFold.
+```
+docker build -f docker/Dockerfile -t alphafold .
+```
+3. Sometimes, AlphaFold's docker image may be removed for some odd reason. If this is the case, just rerun the command above. You can always check to see if AlphaFold's docker image still exists by running: 
+```
+docker images
+```
+You should see something like:
+```
+alphafold     latest     4fa3bdfdafd2     5 weeks ago     12.4G
+```
+
+# AlphaFold Tutorial: Running Inferences
 **AlphaFold md22 repo originally pulled on: 4 February 2022**
 <br>
 <br>
-AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. The github repo lives at `/fisher/alphafold/alphafold` on md22.
+AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. Notably, the first 5 bullet points underneath "Running AlphaFold" may be usefult to read.
+<br>
+<br>
+The github repo lives at `/fisher/alphafold/alphafold` on md22.
 
 ## Preparing sequence files
 FASTA files should be placed in a subdirectory under `/fisher/alphafold/inferences`. If nohup is used, you should also create a `<NOHUP>.out` file within your subdirectory. 
