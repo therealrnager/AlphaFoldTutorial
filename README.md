@@ -5,7 +5,7 @@ By: Ranger Kuang
 Last Updated: 5 May 2022
 <br>
 <br>
-[DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page has extensive and comprehensive details on installing AlphaFold. However, I will mention some of the nuances and issues that I ran into when installing AlphaFold onto md22. 
+[DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page has extensive and comprehensive details on installing AlphaFold. However, I will mention some of the nuances and issues that I ran into when originally installing AlphaFold onto md22. 
 ## On Installing Docker
 Docker may be already up and running on the lab's servers (for md22, it was already installed). If Docker is already installed, you do not have to worry about the step of installing Docker. 
 ## On Installing Python Dependencies
