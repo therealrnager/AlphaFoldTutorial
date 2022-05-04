@@ -176,6 +176,8 @@ nohup psrecord <PID> \
 <br>
 However, the CPU usage numbers given by these separate log files do not accurately match up with just using `psrecord` natively, so I am not confident in the accuracy of this script's output. 
 
+### Installing psrecord on other serverrs 
+[Psrecord's github page](https://github.com/astrofrog/psrecord), as well as this [stack exchange post](https://unix.stackexchange.com/questions/554/how-to-monitor-cpu-memory-usage-of-a-single-process) are good references to installing psrecord. It is highly recommended to install psrecord on a Python virtual environment, to not interfere with other dependencies you may have installed. 
 # Postscript on OpenFold
 **OpenFold local repo originally pulled on: Dec. 10, 2021**
 <br>
