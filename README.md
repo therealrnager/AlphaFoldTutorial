@@ -99,7 +99,14 @@ If you have a multimer that has, for example, 2 copies of `<SEQUENCE A>` and 3 c
 <SEQUENCE B>
 ```
 ### Writing Expressed / Unexpressed Residues
-It is critically important that when creating your FASTA sequences, you account for unexpressed residues. For instance, 
+It is critically important that when creating your FASTA sequences, you account for unexpressed residues. For instance, if you are basing sequences off of a PDB template, the PDB Structure View will show which residues are not expressed. In the image below of a sample PDB multimer structure, note the unexpressed residues. 
+<img src="imgs/nonexpressed_residues.png" alt="nonexpressed residues example" />
+<br>
+
+* My strategy for accounting for unexpressed residues was to just manually delete them from my sequences. This method is generally successful in improving results, though I still ran into trouble and did not univerisally obtain good results.   
+* A hypothesized alternative is to replace all unexpressed residues with a Glycine amino acid, as it is generally an inert amino acid. This is not tested, and only a hypothesized solution!! 
+
+Ultimately, I was not able to rigorously find a solution to account for unexpressed residues. More work needs to be done to find a better solution.
 
 ## Running inferences
 1. Run `cd /fisher/openfold/openfold`
