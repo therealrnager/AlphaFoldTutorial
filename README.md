@@ -60,7 +60,7 @@ alphafold     latest     4fa3bdfdafd2     5 weeks ago     12.4G
 **AlphaFold md22 repo originally pulled on: 4 February 2022**
 <br>
 <br>
-AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. Notably, the first 5 bullet points underneath "Running AlphaFold" may be useful to read.
+AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. Notably, the first 4 bullet points underneath "Running AlphaFold" may be useful to read.
 <br>
 <br>
 The github repo lives at `/fisher/alphafold/alphafold` on md22.
