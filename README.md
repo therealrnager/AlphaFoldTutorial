@@ -60,7 +60,7 @@ alphafold     latest     4fa3bdfdafd2     5 weeks ago     12.4G
 **AlphaFold md22 repo originally pulled on: 4 February 2022**
 <br>
 <br>
-AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. Notably, the first 4 bullet points underneath "Running AlphaFold" may be useful to read.
+AlphaFold is currently set up and run on md22. This tutorial may not touch upon every aspect of AlphaFold or always go into full detail; for comprehensive information on AlphaFold, refer to [DeepMind's AlphaFold](https://github.com/deepmind/alphafold) github page. Notably, the first 4 bullet points underneath ["Running AlphaFold"](https://github.com/deepmind/alphafold#running-alphafold) are useful to read.
 <br>
 <br>
 The github repo lives at `/fisher/alphafold/alphafold` on md22.
@@ -98,6 +98,8 @@ If you have a multimer that has, for example, 2 copies of `<SEQUENCE A>` and 3 c
 >sequence_5
 <SEQUENCE B>
 ```
+### Writing Expressed / Unexpressed Residues
+It is critically important that when creating your FASTA sequences, you account for unexpressed residues. For instance, 
 
 ## Running inferences
 1. Run `cd /fisher/openfold/openfold`
@@ -141,7 +143,7 @@ The output by default goes to `/tmp/alphafold/<SUB_DIR>` where `<SUB_DIR>` will 
 ## Tracking Memory Usage
 It may be useful at times to track the CPU usage of AlpahFold, given that it is incredibly memory-intensive. There are two main ways that I have currently set up:
 1. Using the pre-installed package `psrecord` 
-2. Using my custom-made python script (not quite accurate, slightly buggy, and overall not very recommended). 
+2. Using my custom-made python script (not rigorously tested for accuracy, and thus not very recommended). 
 ### Option 1: Using `psrecord` natively 
 1. In one terminal window, prepare and run alphafold as you normally would, for example `nohup python3 docker/run_docker.py`... 
 2. In a new window, run `conda activate psrecord`. (You may need to `cd /home/rk3177` before entering the conda environment). If done correctly, a `(psrecord)` should appear before your name in the command line.
